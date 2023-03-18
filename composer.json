@@ -1,0 +1,16 @@
+{
+    "name": "ls/client-framework",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Ls\\ClientFramework\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Amir Salehi",
+            "email": "iamamirsalehi@gmail.com"
+        }
+    ],
+    "require": {}
+}
