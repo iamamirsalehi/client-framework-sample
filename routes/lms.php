@@ -11,4 +11,4 @@ $router->get('/', function (Request $request, Response $response) {
     view('lms.products.list', $data);
 
     return $response;
-})->addMiddleware(new \Middleware\Auth());
+});
