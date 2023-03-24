@@ -12,18 +12,9 @@
 </head>
 <body>
 
+<h1>Amir</h1>
+
 <div class="row col-md-12">
-    <?php $courses = \Ls\ClientAssistant\Apis\V1\LMS::lmsGetCourses(); ?>
-    <?php foreach ($courses as $course): ?>
-        <div class="card col-md-3 m-2" style="width: 18rem;">
-            <div class="card-body">
-                <h5 class="card-title"><?= $course['title'] ?></h5>
-                <h6 class="card-subtitle mb-2 text-muted"><?= $course['slug'] ?></h6>
-                <p class="card-text">price: <?= $course['price'] ?></p>
-                <a href="#" class="card-link">Purchase</a>
-            </div>
-        </div>
-    <?php endforeach; ?>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"

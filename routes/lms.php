@@ -1,14 +1,14 @@
 <?php
 //TODO: ENV editor route, and view must be defined in assistant
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 
-$router->view('/', 'lms.products.list')->middlware(Auth::class);
-
-$router->post('/save-comment', function () {
+$router->get('/', function (Request $request, Response $response) {
     $data = [
-        'courses' => \Ls\ClientAssistant\Apis\V1\LMS::lmsGetCourses(),
+        'users' => \Ls\ClientAssistant\Utilities\Modules\User::getUsers(),
     ];
 
-    extract($data);
+    view('lms.products.list', $data);
 
-    view('lms.course', $data);
-});
+    return $response;
+})->addMiddleware(new \Middleware\Auth());
