@@ -1,19 +1,22 @@
 <?php
 include_once __DIR__ . "/vendor/autoload.php";
 
+//Loading env
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->safeLoad();
+
+//Loading router
 $router = new \Ls\ClientAssistant\Core\Router();
 $router->setViewsDirectoryAddress((__DIR__ . DIRECTORY_SEPARATOR . 'views'));
 
-include_once __DIR__ . '/routes/auth.php';
-include_once __DIR__ . '/routes/blog.php';
-include_once __DIR__ . '/routes/cart.php';
-include_once __DIR__ . '/routes/lms.php';
-include_once __DIR__ . '/routes/pages.php';
-include_once __DIR__ . '/routes/panel.php';
-include_once __DIR__ . '/routes/shop.php';
+//Loading route files
+$routeFiles = glob((__DIR__ . DIRECTORY_SEPARATOR . 'routes' . DIRECTORY_SEPARATOR . '*.php'));
+foreach ($routeFiles as $route) {
+    include_once $route;
+}
 
+//Matching routes
 $match = $router->match();
-
 if (is_array($match) && is_callable($match['target'])) {
     call_user_func_array($match['target'], $match['params']);
 } else {
