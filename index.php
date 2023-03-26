@@ -9,7 +9,7 @@ $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->safeLoad();
 
 //Loading router
-$router = AppFactory::create();
+$router = \Ls\ClientAssistant\Core\Router\RouterAppFactoryAdapter::createWithApiKey($_ENV['LS_API_KEY']);
 $router->addErrorMiddleware(true, true, true);
 
 
