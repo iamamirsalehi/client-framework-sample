@@ -4,8 +4,9 @@ use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
 $router->get('/', function (Request $request, Response $response) {
+
     $data = [
-        'users' => \Ls\ClientAssistant\Utilities\Modules\User::list(),
+        'products' => \Ls\ClientAssistant\Utilities\Modules\LMSProduct::list(),
     ];
 
     view('lms.products.list', $data);

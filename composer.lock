@@ -1200,16 +1200,16 @@
         },
         {
             "name": "ls/client-assistant",
-            "version": "v1.0.14",
+            "version": "v1.1.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/iamamirsalehi/client-assistant-sample.git",
-                "reference": "49b467748bff9973af234db869fa71fdcd815981"
+                "reference": "d725018dfe7b8194123943ea4dd73dfa0903616c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/iamamirsalehi/client-assistant-sample/zipball/49b467748bff9973af234db869fa71fdcd815981",
-                "reference": "49b467748bff9973af234db869fa71fdcd815981",
+                "url": "https://api.github.com/repos/iamamirsalehi/client-assistant-sample/zipball/d725018dfe7b8194123943ea4dd73dfa0903616c",
+                "reference": "d725018dfe7b8194123943ea4dd73dfa0903616c",
                 "shasum": ""
             },
             "require": {
@@ -1233,9 +1233,9 @@
             ],
             "support": {
                 "issues": "https://github.com/iamamirsalehi/client-assistant-sample/issues",
-                "source": "https://github.com/iamamirsalehi/client-assistant-sample/tree/v1.0.14"
+                "source": "https://github.com/iamamirsalehi/client-assistant-sample/tree/v1.1.15"
             },
-            "time": "2023-03-28T15:05:09+00:00"
+            "time": "2023-03-29T07:45:51+00:00"
         },
         {
             "name": "nesbot/carbon",
