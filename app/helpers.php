@@ -1,4 +1,5 @@
 <?php
+use eftec\bladeone\BladeOne;
 
 if (!function_exists('site_url')) {
     function site_url(string $uri)
@@ -7,8 +8,8 @@ if (!function_exists('site_url')) {
     }
 }
 
-if (!function_exists('asset_url')) {
-    function asset_url(string $path)
+if (!function_exists('asset')) {
+    function asset(string $path)
     {
         return ($_ENV['APP_URL'] ?? '') . '/assets/' . $path;
     }
@@ -18,11 +19,17 @@ if (!function_exists('view')) {
     function view(string $view, array $vars = [])
     {
         $viewsPath = realpath(__DIR__ . DIRECTORY_SEPARATOR . '../views' . DIRECTORY_SEPARATOR);
+        $cachePath = realpath(__DIR__ . DIRECTORY_SEPARATOR . '../cache' . DIRECTORY_SEPARATOR);
+        $blade = new BladeOne($viewsPath, $cachePath, BladeOne::MODE_DEBUG);
+        echo $blade->run($view, $vars);
+    }
+}
 
-        if (!empty($vars)) {
-            extract($vars);
-        }
-
-        return include $viewsPath . DIRECTORY_SEPARATOR . str_replace('.', DIRECTORY_SEPARATOR, $view) . '.php';
+if (!function_exists('route')) {
+    function route(string $path)
+    {
+        global $routeParser;
+        $route = $routeParser->urlFor($path);
+        return ($_ENV['APP_URL'] ?? '') .  $route;
     }
 }

@@ -11,7 +11,7 @@ $dotenv->safeLoad();
 //Loading router
 $router = \Ls\ClientAssistant\Core\Router\RouterAppFactoryAdapter::createWithApiKey($_ENV['LS_API_KEY'], $_ENV['CORE_URL']);
 $router->addErrorMiddleware(true, true, true);
-
+$routeParser = $router->getRouteCollector()->getRouteParser();
 
 //Loading route files
 $routeFiles = glob((__DIR__ . DIRECTORY_SEPARATOR . 'routes' . DIRECTORY_SEPARATOR . '*.php'));
