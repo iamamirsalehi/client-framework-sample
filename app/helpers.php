@@ -24,3 +24,12 @@ if (!function_exists('view')) {
         echo $blade->run($view, $vars);
     }
 }
+
+if (!function_exists('route')) {
+    function route(string $path)
+    {
+        global $routeParser;
+        $route = $routeParser->urlFor($path);
+        return ($_ENV['APP_URL'] ?? '') .  $route;
+    }
+}
