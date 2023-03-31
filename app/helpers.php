@@ -26,10 +26,10 @@ if (!function_exists('view')) {
 }
 
 if (!function_exists('route')) {
-    function route(string $path)
+    function route(string $path, array $data = [], array $queryParams = [])
     {
         global $routeParser;
-        $route = $routeParser->urlFor($path);
-        return ($_ENV['APP_URL'] ?? '') .  $route;
+        $route = $routeParser->urlFor($path, $data, $queryParams);
+        return ($_ENV['APP_URL'] ?? '') . $route;
     }
 }
