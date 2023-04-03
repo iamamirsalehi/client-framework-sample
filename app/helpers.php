@@ -8,8 +8,8 @@ if (!function_exists('site_url')) {
     }
 }
 
-if (!function_exists('asset')) {
-    function asset(string $path)
+if (!function_exists('asset_url')) {
+    function asset_url(string $path)
     {
         return ($_ENV['APP_URL'] ?? '') . '/assets/' . $path;
     }
@@ -22,14 +22,5 @@ if (!function_exists('view')) {
         $cachePath = realpath(__DIR__ . DIRECTORY_SEPARATOR . '../cache' . DIRECTORY_SEPARATOR);
         $blade = new BladeOne($viewsPath, $cachePath, BladeOne::MODE_DEBUG);
         echo $blade->run($view, $vars);
-    }
-}
-
-if (!function_exists('route')) {
-    function route(string $path, array $data = [], array $queryParams = [])
-    {
-        global $routeParser;
-        $route = $routeParser->urlFor($path, $data, $queryParams);
-        return ($_ENV['APP_URL'] ?? '') . $route;
     }
 }
