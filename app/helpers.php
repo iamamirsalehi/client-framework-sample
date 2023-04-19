@@ -15,6 +15,13 @@ if (!function_exists('asset_url')) {
     }
 }
 
+if (!function_exists('storage_url')) {
+    function storage_url(string $path = null)
+    {
+        return ($_ENV['STORAGE_URL'] ?? '') . '/' . $path;
+    }
+}
+
 if (!function_exists('view')) {
     function view(string $view, array $vars = [])
     {
