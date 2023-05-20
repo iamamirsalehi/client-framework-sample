@@ -8,7 +8,6 @@
     <title>Hello Page</title>
 </head>
 <body>
-<h1>This is hello blade page</h1>
-<a href="{{ route('bye') }}">Go to bye page</a>
+<h1>Hello from 7learn client</h1>
 </body>
 </html>
